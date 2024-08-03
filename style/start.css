@@ -1,0 +1,160 @@
+/* קובעת גובה ורוחב של 100% מהמסך */
+body {
+  height: 100vh;
+  width: 100vw;
+  /* מגדירה את תמונת הרקע */
+  background-image: url("../images/רקע.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* הגדרת סגנונות עבור אלמנט עם מזהה "play" */
+#play {
+  /* מגדירה את סוג הסמן */
+  cursor: pointer;
+  /* קובעת את הזמן של המעבר */
+  transition: 2.5s ease-in-out;
+  /* מגדירה אנימציה בשם "ronis-scale" */
+  animation: ronis-scale 7s infinite;
+  /* קובעת את המרחק מהקצה השמאלי של המסך */
+  margin-left: 20%;
+  /* קובעת את המרחק מהקצה התחתון של המסך */
+  margin-bottom: 24%;
+}
+
+/* מגדירה אנימציה בשם "ronis-scale" */
+@keyframes ronis-scale {
+  0% {
+    /* קובע את התפיסה הראשונית של האלמנט */
+    transform: scale(0.7);
+  }
+
+  100% {
+    /* קובע את התפיסה הסופית של האלמנט */
+    transform: scale(0.9);
+  }
+}
+
+/* קובעת את הסגנון של התמונה כאשר המשתמש מעביר את העכבר מעליה */
+img:hover {
+  opacity: 0.6;
+}
+
+/* הגדרת סגנונות עבור אלמנט עם מזהה "loggin" */
+#loggin {
+  /* מגדירה את סוג הסמן */
+  cursor: pointer;
+  /* קובעת את רוחב האלמנט */
+  width: 15vw;
+  /* קובעת את המרחק מהקצה התחתון של המסך */
+  margin-bottom: 70vh;
+}
+
+/* קובעת סגנונות במסכים קטנים יותר (עד רוחב של 800 פיקסלים) */
+@media only screen and (max-width: 800px) {
+  /* שינוי הסגנון של האלמנט עם מזהה "play" */
+  #play {
+    margin-left: 11%;
+    width: 50%;
+    margin-bottom: 70%;
+    animation: none;
+  }
+  /* שינוי הסגנון של האלמנט עם מזהה "loggin" */
+  #loggin {
+    cursor: pointer;
+    width: 17vw;
+    margin-bottom: 89%;
+  }
+}
+
+/* הסרת הקווים מתחת לקישורים */
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 20px;
+}
+
+/* קובעת את הסגנון של הפסקאות */
+p {
+  text-align: center;
+  font-weight: 700;
+  font-size: 50px;
+  font-family: Hack, sans-serif;
+  text-transform: uppercase;
+  /* הגדרת צבע רקע מגרדיאנט */
+  background: linear-gradient(90deg, #ea37b4, #fff, #5eaabb);
+  letter-spacing: 5px;
+  /* הגדרת קליפ רקע טקסט */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* הגדרת צבע טקסט שקוף */
+  -webkit-text-fill-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  /* הגדרת אנימציה בשם "shine" */
+  animation: shine 7s linear infinite;
+}
+
+/* מגדירה אנימציה בשם "shine" */
+@keyframes shine {
+  0% {
+    /* הגדרת מיקום הרקע בהתחלה */
+    background-position-x: -500%;
+  }
+  100% {
+    /* הגדרת מיקום הרקע בסוף */
+    background-position-x: 500%;
+  }
+}
+
+/* מגדירה אנימציה בשם "wiggle" */
+@keyframes wiggle {
+  0%,
+  7% {
+    /* הגדרת סיבוב התחלה וסיום של האנימציה */
+    transform: rotateZ(0);
+  }
+  15% {
+    /* הגדרת סיבוב של -15 מעלות */
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    /* הגדרת סיבוב של 10 מעלות */
+    transform: rotateZ(10deg);
+  }
+  25% {
+    /* הגדרת סיבוב של -10 מעלות */
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    /* הגדרת סיבוב של 6 מעלות */
+    transform: rotateZ(6deg);
+  }
+  35% {
+    /* הגדרת סיבוב של -4 מעלות */
+    transform: rotateZ(-4deg);
+  }
+  40%,
+  100% {
+    /* הגדרת סיבוב סיום של האנימציה */
+    transform: rotateZ(0);
+  }
+}
+
+/* הגדרת אנימציה בשם "loader" (לא בשימוש כרגע) */
+@keyframes loader {
+  0% {
+    /* הגדרת סיבוב התחלתי */
+    rotate: 0deg;
+  }
+
+  50% {
+    /* הגדרת סיבוב של 180 מעלות */
+    rotate: 180deg;
+  }
+
+  100% {
+    /* הגדרת סיבוב של 360 מעלות */
+    rotate: 360deg;
+  }
+}

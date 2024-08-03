@@ -1,0 +1,460 @@
+/* הגדרת גובה ורוחב של 100% מהמסך, עם תמונת רקע שתמיד נשארת במיקום קבוע */
+body {
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/ג.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  margin: 0; /* מסיר רווחים סביב הגוף */
+}
+
+/* סגנון עבור אלמנט עם מזהה "score" */
+#score {
+  width: 15vw; /* רוחב של 15% מהמסך */
+  height: 23vh; /* גובה של 23% מהמסך */
+  /* הוסרו הערות על margin-left */
+  border: 2px solid #00a4bd; /* גבול של 2 פיקסלים בצבע מסוים */
+  border-radius: 12px; /* פינות מעוגלות של 12 פיקסלים */
+  font-family: "Play", sans-serif; /* גופן "Play" או גופן ברירת מחדל */
+  /* הוספת צללים לטקסט */
+  text-shadow: 0 0 1px #ff4af6a8, 0 0 5px #88379ca8, 0 0 3px #ef00e3a8,
+    0 0 20px #e27bdda8, 0 0 2px #e7e7e7, 2px 2px 2px #54ccdb;
+  color: #e9cbf5; /* צבע הטקסט */
+}
+
+/* סגנון עבור אלמנט עם מזהה "grade" */
+#grade {
+  text-align: center; /* יישור הטקסט למרכז */
+  font-size: 3.5rem; /* גודל הטקסט */
+  font-family: "Play", sans-serif; /* גופן "Play" או גופן ברירת מחדל */
+  /* הוספת צללים לטקסט */
+  text-shadow: 0 0 1px #ff4af6a8, 0 0 5px #88379ca8, 0 0 3px #ef00e3a8,
+    0 0 20px #e27bdda8, 0 0 2px #e7e7e7, 2px 2px 2px #54ccdb;
+  color: #e9cbf5; /* צבע הטקסט */
+}
+
+/* הגדרת אנימציה עבור מחלקה בשם "grade" */
+.grade {
+  animation: grade 3s; /* משתמש באנימציה בשם "grade" שנמשכת 3 שניות */
+}
+
+/* מגדירה אנימציה בשם "grade" */
+@keyframes grade {
+  0% {
+    transform: rotate(0); /* סיבוב של 0 מעלות בהתחלה */
+  }
+  100% {
+    transform: rotate(360deg); /* סיבוב של 360 מעלות בסוף */
+  }
+}
+
+/* סגנון עבור אלמנט עם מזהה "head" */
+#head {
+  display: flex; /* מגדיר תצוגת גמישה */
+  flex-direction: row; /* התמקדות בשורה */
+  justify-content: space-around; /* מפזר את האלמנטים באופן שווה */
+  margin: 0; /* מסיר רווחים סביב */
+  height: 20vh; /* גובה של 20% מהמסך */
+}
+
+/* סגנון עבור אלמנט עם מזהה "all" */
+#all {
+  margin-top: 1%; /* מרחק של 1% מהקצה העליון */
+  display: flex; /* מגדיר תצוגת גמישה */
+  flex-direction: column; /* התמקדות בעמודה */
+  flex-wrap: nowrap; /* לא לעטוף את האלמנטים */
+  justify-content: space-between; /* מפזר את האלמנטים באופן שווה */
+  text-align: center; /* יישור הטקסט למרכז */
+}
+
+/* סגנון עבור אלמנטים עם מזהים "star1", "star2", "star3" */
+#star1,
+#star2,
+#star3 {
+  width: 100px; /* רוחב קבוע של 100 פיקסלים */
+  margin: 1vw; /* מרחק של 1% מהמסך */
+  /* הגדרת אנימציה של "stretch" */
+  animation-name: stretch;
+  animation-duration: 1.5s; /* משך האנימציה */
+  animation-timing-function: ease-out; /* פונקציית זמן אנימציה */
+  animation-direction: alternate; /* ההנמכה תחזור אחורה */
+  animation-iteration-count: infinite; /* האנומציה תתרחש אינסופית */
+  animation-fill-mode: none; /* הגדרה של מצב המילוי */
+  animation-play-state: running; /* מצב השמעה של האנימציה */
+}
+
+/* מגדירה אנימציה בשם "stretch" */
+@keyframes stretch {
+  0% {
+    transform: scale(0.9); /* קנה מידה של 0.9 בהתחלה */
+  }
+  50% {
+    /* אין שינוי במצב 50% */
+  }
+  100% {
+    transform: scale(1.2); /* קנה מידה של 1.2 בסוף */
+  }
+}
+
+/* סגנון עבור אלמנט עם מזהה "rand" */
+#rand {
+  width: 16vw; /* רוחב של 16% מהמסך */
+  height: 14vh; /* גובה של 14% מהמסך */
+  border: 2px solid #00a4bd; /* גבול של 2 פיקסלים בצבע מסוים */
+  padding: 5px; /* ריפוד של 5 פיקסלים */
+  margin-left: 11%; /* מרחק של 11% מהקצה השמאלי */
+  border-radius: 12px; /* פינות מעוגלות של 12 פיקסלים */
+  text-align: center; /* יישור הטקסט למרכז */
+  font-size: 5.5rem; /* גודל הטקסט */
+  font-family: "Play", sans-serif; /* גופן "Play" או גופן ברירת מחדל */
+  /* הוספת צללים לטקסט */
+  text-shadow: 0 0 1px #ff4af6a8, 0 0 5px #88379ca8, 0 0 3px #ef00e3a8,
+    0 0 20px #e27bdda8, 0 0 2px #e7e7e7, 2px 2px 2px #54ccdb;
+  color: #e9cbf5; /* צבע הטקסט */
+}
+
+/* סגנון עבור אלמנט עם מחלקה "square3" */
+.square3 {
+  cursor: grab; /* סמן הגרירה */
+  width: 9vw; /* רוחב של 9% מהמסך */
+  height: 9vh; /* גובה של 9% מהמסך */
+  display: inline-block; /* תצוגה כבלוק פנימי */
+  text-align: center; /* יישור הטקסט למרכז */
+  font-size: 1.5rem; /* גודל הטקסט */
+  font-family: Verdana, Geneva, Tahoma, sans-serif, "Play"; /* רשימת גופנים */
+  text-shadow: 0 0 2px #ff4af6a8, 0 0 5px #88379ca8, 0 0 3px #ef00e3a8,
+    0 0 15px #e27bdda8, 0 0 2px #e7e7e7, 2px 2px 2px #54ccdb; /* צללים לטקסט */
+  color: #e9cbf5; /* צבע הטקסט */
+  animation: wiggle 1s linear infinite; /* אנימציה בשם "wiggle" שנמשכת 1 שנייה */
+}
+
+/* מגדירה אנימציה בשם "wiggle" */
+@keyframes wiggle {
+  0%,
+  7% {
+    transform: rotateZ(0); /* סיבוב של 0 מעלות בהתחלה */
+  }
+  15% {
+    transform: rotateZ(-15deg); /* סיבוב של -15 מעלות */
+  }
+  20% {
+    transform: rotateZ(10deg); /* סיבוב של 10 מעלות */
+  }
+  25% {
+    transform: rotateZ(-10deg); /* סיבוב של -10 מעלות */
+  }
+  30% {
+    transform: rotateZ(6deg); /* סיבוב של 6 מעלות */
+  }
+  35% {
+    transform: rotateZ(-4deg); /* סיבוב של -4 מעלות */
+  }
+  40%,
+  100% {
+    transform: rotateZ(0); /* סיבוב של 0 מעלות בסוף */
+  }
+}
+
+/* סגנון עבור אלמנט עם מחלקה "square2" */
+.square2 {
+  cursor: grab; /* סמן הגרירה */
+  width: 9vw; /* רוחב של 9% מהמסך */
+  height: 9vh; /* גובה של 9% מהמסך */
+  display: inline-block; /* תצוגה כבלוק פנימי */
+  text-align: center; /* יישור הטקסט למרכז */
+  font-size: 2.5rem; /* גודל הטקסט */
+  font-family: Verdana, Geneva, Tahoma, sans-serif, "Play"; /* רשימת גופנים */
+  text-shadow: 0 0 2px #ff4af6a8, 0 0 5px #88379ca8, 0 0 3px #ef00e3a8,
+    0 0 15px #e27bdda8, 0 0 2px #e7e7e7, 2px 2px 2px #54ccdb; /* צללים לטקסט */
+  color: #e9cbf5; /* צבע הטקסט */
+  transition: 2.5s ease-in-out; /* מעבר חלק של 2.5 שניות */
+  animation: loader 4s infinite; /* אנימציה בשם "loader" שנמשכת 4 שניות */
+}
+
+/* מגדירה אנימציה בשם "loader" */
+@keyframes loader {
+  0% {
+    rotate: 0deg; /* סיבוב של 0 מעלות בהתחלה */
+  }
+
+  50% {
+    rotate: 180deg; /* סיבוב של 180 מעלות */
+  }
+
+  100% {
+    rotate: 360deg; /* סיבוב של 360 מעלות בסוף */
+  }
+}
+
+/* סגנון עבור אלמנט עם מחלקה "square" */
+.square {
+  cursor: grab; /* סמן הגרירה */
+  width: 11vw; /* רוחב של 11% מהמסך */
+  height: 15vh; /* גובה של 15% מהמסך */
+  display: inline-block; /* תצוגה כבלוק פנימי */
+  text-align: center; /* יישור הטקסט למרכז */
+  font-size: 3rem; /* גודל הטקסט */
+  font-family: Verdana, Geneva, Tahoma, sans-serif, "Play"; /* רשימת גופנים */
+  text-shadow: 0 0 2px #ff4af6a8, 0 0 5px #88379ca8, 0 0 3px #ef00e3a8,
+    0 0 15px #e27bdda8, 0 0 2px #e7e7e7, 2px 2px 2px #54ccdb; /* צללים לטקסט */
+  color: #e9cbf5; /* צבע הטקסט */
+  animation: ronis-scale alternate 1s linear infinite; /* אנימציה בשם "ronis-scale" שנמשכת 1 שנייה */
+}
+
+/* מגדירה אנימציה בשם "ronis-scale" */
+@keyframes ronis-scale {
+  0% {
+    transform: scale(1); /* קנה מידה של 1 בהתחלה */
+  }
+
+  100% {
+    transform: scale(1.5); /* קנה מידה של 1.5 בסוף */
+  }
+}
+
+/* סגנון עבור אלמנט עם מזהה "results" */
+#results {
+  position: absolute; /* מיקום מוחלט */
+  top: 0; /* מיקום מלמעלה */
+  bottom: 0; /* מיקום מלמטה */
+  left: 0; /* מיקום מהצד השמאלי */
+  width: 0; /* רוחב של 0 פיקסלים */
+  height: 0; /* גובה של 0 פיקסלים */
+  overflow: hidden; /* הסתרת תוכן מחוץ לגבולות */
+  background-repeat: no-repeat; /* מניעת חזרה של הרקע */
+  background-attachment: fixed; /* קיבוע הרקע */
+  background-size: 100% 100%; /* גודל הרקע */
+  background-image: url("../images/n\ 00_00_00-00_00_30.gif"); /* תמונת רקע */
+  animation: showResults 0.25s linear; /* אנימציה בשם "showResults" שנמשכת 0.25 שניות */
+  animation-fill-mode: forwards; /* מצב המילוי של האנימציה */
+  animation-delay: 62s; /* עיכוב של 62 שניות */
+}
+
+/* מגדירה אנימציה בשם "showResults" */
+@keyframes showResults {
+  from {
+    width: 0; /* רוחב של 0 פיקסלים בהתחלה */
+    height: 0; /* גובה של 0 פיקסלים בהתחלה */
+  }
+  to {
+    width: 100vw; /* רוחב של 100% מהמסך בסוף */
+    height: 100vh; /* גובה של 100% מהמסך בסוף */
+  }
+}
+
+/* סגנון עבור כפתור */
+button {
+  cursor: pointer; /* סמן של לחיצה */
+  outline: none; /* הסרת גבול */
+  background: none; /* רקע שקוף */
+  padding: 11px; /* ריפוד של 11 פיקסלים */
+  cursor: pointer; /* סמן של לחיצה */
+  font-size: 60px; /* גודל הטקסט */
+  bottom: 0; /* מיקום מלמטה */
+  animation: ronis-scale alternate 1s linear infinite; /* אנימציה בשם "ronis-scale" שנמשכת 1 שנייה */
+  margin-top: 40%; /* מרחק של 40% מהקצה העליון */
+  color: #f7347f; /* צבע הטקסט */
+  border-radius: 20% 20% 20% 20%; /* עיגול הפינות של 20% */
+  font-family: "Farsan", cursive; /* גופן "Farsan" או גופן כתיבה */
+}
+
+/* סגנון לכפתור כאשר הוא נלחץ */
+button:active {
+  background: #07c1ff; /* רקע כחול כאשר נלחץ */
+  color: #ed4fff; /* צבע טקסט סגול כאשר נלחץ */
+}
+
+/* מגדירה אנימציה בשם "ronis-scale" */
+@keyframes ronis-scale {
+  0% {
+    transform: scale(1); /* קנה מידה של 1 בהתחלה */
+  }
+
+  100% {
+    transform: scale(1.2); /* קנה מידה של 1.2 בסוף */
+  }
+}
+
+/* סגנון עבור אלמנט עם מחלקה "wrapper nine" */
+wrapper.nine {
+  background-color: #09715d; /* צבע רקע ירוק כהה */
+  font-family: "Arvo", serif; /* גופן "Arvo" או גופן סריף */
+}
+
+/* סגנון עבור אלמנט עם מחלקה "rotate" */
+.rotate span {
+  font-size: 5rem; /* גודל הטקסט */
+  color: #f8f8f8; /* צבע הטקסט */
+  display: inline-flex; /* תצוגה כבלוק פנימי גמיש */
+  animation: rotate 2s infinite; /* אנימציה בשם "rotate" שנמשכת 2 שניות */
+}
+
+/* מגדירה אנימציה בשם "rotate" */
+@keyframes rotate {
+  0%,
+  75% {
+    transform: rotateY(360deg); /* סיבוב של 360 מעלות על ציר ה-Y */
+  }
+}
+
+/* סגנון עבור אלמנטים בתוך "rotate" */
+.nine span:nth-of-type(1) {
+  animation-delay: 0.2s; /* עיכוב של 0.2 שניות */
+}
+.nine span:nth-of-type(2) {
+  animation-delay: 0.4s; /* עיכוב של 0.4 שניות */
+}
+.nine span:nth-of-type(3) {
+  animation-delay: 0.6s; /* עיכוב של 0.6 שניות */
+}
+.nine span:nth-of-type(4) {
+  animation-delay: 0.8s; /* עיכוב של 0.8 שניות */
+}
+.nine span:nth-of-type(5) {
+  animation-delay: 1s; /* עיכוב של 1 שניה */
+}
+.nine span:nth-of-type(6) {
+  animation-delay: 1.2s; /* עיכוב של 1.2 שניות */
+}
+
+/* סגנון עבור אלמנט עם מחלקה "timer" */
+.timer {
+  margin-top: 60px; /* מרחק של 60 פיקסלים מהקצה העליון */
+}
+
+/* סגנון עבור אלמנט עם מזהה "timeLeft" */
+#timeLeft {
+  text-shadow: 0 0 10px #ff4af6a8, 0 0 20px #88379ca8, 0 0 20px #ef00e3a8,
+    0 0 20px #ef00e3a8, 0 0 2px #00557d, 2px 2px 2px #54ccdb; /* הוספת צללים לטקסט */
+  color: #e9cbf5; /* צבע הטקסט */
+  font-size: 50px; /* גודל הטקסט */
+}
+
+/* סגנון עבור אלמנט עם מחלקה "timer" בתור SVG */
+.timer > svg {
+  width: 200px; /* רוחב של 200 פיקסלים */
+  height: 200px; /* גובה של 200 פיקסלים */
+}
+
+/* סגנון עבור קווים בתוך ה-SVG של הטיימר */
+.timer > svg > circle {
+  fill: none; /* הסרת מילוי */
+  stroke-opacity: 0.3; /* שקיפות הקו */
+  stroke: #e9cbf5; /* צבע הקו */
+  text-align: center; /* יישור הטקסט למרכז */
+  stroke-width: 8; /* רוחב הקו */
+  transform-origin: center center; /* מקור ההמרה של הקו */
+  transform: rotate(-90deg); /* סיבוב של -90 מעלות */
+}
+
+/* סגנון עבור הקו השני בתוך ה-SVG של הטיימר */
+.timer > svg > circle + circle {
+  stroke-dasharray: 1; /* ערך של stroke-dasharray */
+  stroke-dashoffset: 1; /* ערך של stroke-dashoffset */
+  stroke-linecap: round; /* קצה עגלגל של הקו */
+  stroke-opacity: 1; /* שקיפות מלאה */
+}
+
+/* סגנון עבור אלמנטים של הטיימר עם אנימציה */
+.timer.animatable > svg > circle + circle {
+  transition: stroke-dashoffset 0.3s ease; /* מעבר חלק של 0.3 שניות */
+}
+
+/* סגנון עבור טקסטים בתוך ה-SVG של הטיימר */
+.timer > svg > text {
+  font-size: 2rem; /* גודל הטקסט */
+}
+
+/* סגנון עבור הטקסט השני בתוך ה-SVG של הטיימר */
+.timer > svg > text + text {
+  font-size: 1rem; /* גודל הטקסט */
+}
+
+/* סגנון עבור אלמנט עם מזהה "second" */
+#second {
+  color: #db81ff; /* צבע הטקסט */
+  font-size: 1.5rem; /* גודל הטקסט */
+  font-family: "Courier New", Courier, monospace; /* גופן מונוספציה */
+}
+
+/* סגנון עבור אלמנט עם מזהה "containtimer" */
+#containtimer {
+  grid-row: unset; /* ביטול הגדרת שורת הרשת */
+}
+
+/* סגנון עבור מסכים עם רוחב מקסימלי של 835 פיקסלים */
+@media only screen and (max-width: 835px) {
+  #score {
+    width: 20vw; /* רוחב של 20% מהמסך */
+    height: 20vh; /* גובה של 20% מהמסך */
+    font-size: medium; /* גודל הטקסט */
+    margin-left: 3%; /* מרחק של 3% מהקצה השמאלי */
+  }
+  #grade {
+    font-size: xx-large; /* גודל הטקסט */
+  }
+  .square2 {
+    font-size: 2rem; /* גודל הטקסט */
+  }
+  #board {
+    margin-left: 8%; /* מרחק של 8% מהקצה השמאלי */
+  }
+  .square {
+    font-size: 3rem; /* גודל הטקסט */
+  }
+
+  /* מגדירה אנימציה חדשה עבור "ronis-scale" במסכים קטנים */
+  @keyframes ronis-scale {
+    0% {
+      transform: scale(0.7); /* קנה מידה של 0.7 בהתחלה */
+    }
+
+    100% {
+      transform: scale(1.2); /* קנה מידה של 1.2 בסוף */
+    }
+  }
+  #rand {
+    width: 16vw; /* רוחב של 16% מהמסך */
+    height: 12vh; /* גובה של 12% מהמסך */
+    padding: 4px; /* ריפוד של 4 פיקסלים */
+    margin-left: 10%; /* מרחק של 10% מהקצה השמאלי */
+    font-size: 4rem; /* גודל הטקסט */
+  }
+  #timeLeft {
+    font-size: 35px; /* גודל הטקסט */
+  }
+
+  .timer > svg > circle {
+    stroke-width: 5; /* רוחב הקו */
+  }
+  #star1,
+  #star2,
+  #star3 {
+    width: 65px; /* רוחב של 65 פיקסלים */
+    margin: 1.5vw; /* מרחק של 1.5% מהמסך */
+    animation-name: stretch; /* אנימציה בשם "stretch" */
+    animation-duration: 1.5s; /* משך האנימציה */
+    animation-timing-function: ease-out; /* פונקציה ליצירת מעבר חלק */
+    animation-direction: alternate; /* כיוון האנימציה */
+    animation-iteration-count: infinite; /* מספר החזרות אינסופי */
+    animation-fill-mode: none; /* מצב המילוי */
+    animation-play-state: running; /* מצב ההפעלה */
+  }
+
+  /* מגדירה אנימציה חדשה עבור "stretch" במסכים קטנים */
+  @keyframes stretch {
+    0% {
+      transform: scale(0.9); /* קנה מידה של 0.9 בהתחלה */
+    }
+    50% {
+    }
+    100% {
+      transform: scale(1.2); /* קנה מידה של 1.2 בסוף */
+    }
+  }
+  button {
+    padding: 11px; /* ריפוד של 11 פיקסלים */
+    margin-top: 3%; /* מרחק של 3% מהקצה העליון */
+  }
+}

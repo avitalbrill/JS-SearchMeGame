@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/start.css" />
+    <style>
+      /* ייבוא גופנים מ-Google Fonts */
+      @import url("https://fonts.googleapis.com/css?family=Abel|Aguafina+Script|Artifika|Athiti|Condiment|Dosis|Droid+Serif|Farsan|Gurajada|Josefin+Sans|Lato|Lora|Merriweather|Noto+Serif|Open+Sans+Condensed:300|Playfair+Display|Rasa|Sahitya|Share+Tech|Text+Me+One|Titillium+Web");
+      
+      /* עיצוב הקונטיינר הראשי */
+      #container {
+        display: none; /* מוסתר כברירת מחדל */
+        background-image: linear-gradient(
+          to top,
+          rgba(205, 156, 242, 0.4) 0%,
+          rgba(246, 255, 255, 0.71) 100%
+        );
+        box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+        text-align: center;
+        border-radius: 5px;
+        margin: 10em auto;
+        background: rgba(255, 255, 255, 0.95);
+        height: 380px;
+        width: 560px;
+        padding: 1em;
+        
+        /* מיקום קבוע במרכז המסך */
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: 0;
+      }
+      
+      /* עיצוב כותרת ראשית */
+      #container h2 {
+        background: url("../images/רקע.jpeg");
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-image: linear-gradient(to top, #bb9ad4 2%, #f053b4 100%);
+        font-family: "Playfair Display", serif;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        letter-spacing: 2px;
+        font-size: 3.5em;
+        margin: 0;
+      }
+
+      /* עיצוב כותרת משנית */
+      #container h3 {
+        font-family: "Farsan", cursive;
+        margin: 3px 0 1.5em 0;
+        font-size: 1.3em;
+        color: #7d7d7d;
+      }
+      
+      /* עיצוב שדה הקלט */
+      #container input {
+        background: rgba(255, 128, 255, 0.9);
+        width: 210px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 7px;
+        background: #eee;
+        padding: 1em 2em;
+        outline: none;
+        border: none;
+        color: #222;
+        transition: 0.3s linear;
+      }
+      
+      /* עיצוב שדה הקלט בפוקוס */
+      #container input:focus {
+        background: rgba(0, 0, 333, 0.1);
+      }
+      
+      /* עיצוב הכפתור */
+      #container button {
+        background-image: linear-gradient(
+          to left,
+          rgba(234, 67, 153, 0.75) 0%,
+          rgba(98, 103, 236, 0.86) 100%
+        );
+        box-shadow: 0 9px 25px -5px #ac36d7;
+        font-family: "Abel", sans-serif;
+        padding: 0.5em 1.9em;
+        margin: 2.3em 0 0 0;
+        border-radius: 7px;
+        font-size: 1.4em;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 1em;
+        outline: none;
+        border: none;
+        transition: 0.3s linear;
+      }
+
+      /* אנימציה בעת מעבר עכבר על הכפתור */
+      #container button:hover {
+        transform: translatey(2px);
+      }
+
+      /* אנימציה בעת לחיצה על הכפתור */
+      #container button:active {
+        transform: translatey(5px);
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body onload="record()">
+    <script src="js.js"></script>
+    
+    <!-- כפתור התחברות -->
+    <input
+      type="image"
+      id="loggin"
+      src="../images/איקון הרשמה.png"
+      onclick="login()"
+    />
+    
+    <!-- כפתור התחלת המשחק -->
+    <img id="play" src="../images/אייקון פליי.png" alt="" />
+    
+    <!-- טופס הרשמה -->
+    <div id="container">
+        <h2>searchNum</h2>
+        <h3>save your name😊</h3>
+        <form id="registration-form">
+            <input type="text" placeholder="enter your name" id="name" required />
+            <br />
+            <button type="button" id="s">Subscribe</button> <!-- שים לב ל-type="button" -->
+        </form>
+    </div> 
+    
+    <script>
+      // אתחול משתנה בשם id לערך 0
+      let id = 0;
+
+      // יצירת מערך ריק בשם arr
+      let arr = [];
+
+      // פונקציה ליצירת אובייקט User
+      function User(name, record) {
+        // אתחול מזהה ייחודי (id) עבור המשתמש, והגברת ה-id ב-1
+        this.id = id++;
+        // הגדרת שם המשתמש
+        this.name = name;
+        // הגדרת רישום המשתמש (record) - שים לב שיש שגיאת כתיב במילה 'recored', צריך להיות 'record'
+        this.record = record; // תיקון השגיאה
+      }
+
+      // פונקציה לעדכון שם השחקן ב-localStorage
+      function updatePlayerName() {
+        localStorage.setItem("name", document.getElementById("name").value);
+      }
+
+      // פונקציה להוספת רישום חדש
+      function record() {
+        // הוספת מאזין לאירוע 'click' על כפתור עם id "s"
+        document.getElementById("s").addEventListener("click", function (event) {
+          // מניעת פעולה ברירת מחדל של שליחת הטופס
+          event.preventDefault();
+
+          // עדכון שם השחקן ב-localStorage
+          updatePlayerName();
+
+          // יצירת אובייקט חדש מסוג User עם הערכים שנשמרו ב-localStorage
+          let plyer = new User(
+            localStorage.getItem("name"),
+            localStorage.getItem("record") // בדוק אם record מוגדר ב-localStorage
+          );
+
+          // הוספת האובייקט החדש למערך arr
+          arr.push(plyer);
+          
+          // הדפסת המערך לעקוב אחרי התוצאה
+          console.log(arr);
+          
+          // שמירת המערך ב-localStorage תחת המפתח "user"
+          localStorage.setItem("user", JSON.stringify(arr));
+          // סגירת חלון ההרשמה
+         document.getElementById("container").style.display = "none";
+        });
+      }
+
+      // מעבר לדף ההוראות בלחיצה על כפתור ה"פליי"
+      document.querySelector("#play").addEventListener("click", m);
+      function m() {
+        window.location.href = "../pages/Instructions.html";
+      }
+      
+      // הצגת טופס ההרשמה בלחיצה על כפתור ההתחברות
+      function login() {
+        document.getElementById("container").style.display = "inline-block";
+      }
+    </script>
+  </body>
+</html>

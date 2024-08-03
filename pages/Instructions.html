@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    /* אנימציה לשינוי צבעים וצללים של הטקסט */
+    @keyframes lights {
+      0% {
+        color: hsl(230, 40%, 80%);
+        text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
+          0 0 0.125em hsla(320, 100%, 60%, 0.3),
+          -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+          1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+      }
+
+      30% {
+        color: hsl(230, 80%, 90%);
+        text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+          0 0 0.125em hsla(320, 100%, 60%, 0.5),
+          -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+          0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+      }
+
+      40% {
+        color: hsl(230, 100%, 95%);
+        text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+          0 0 0.125em hsla(320, 100%, 90%, 0.5),
+          -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+          0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+      }
+
+      70% {
+        color: hsl(230, 80%, 90%);
+        text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+          0 0 0.125em hsla(320, 100%, 60%, 0.5),
+          0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+          -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+      }
+
+      100% {
+        color: hsl(230, 40%, 80%);
+        text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
+          0 0 0.125em hsla(320, 100%, 60%, 0.3),
+          1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+          -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+      }
+    }
+
+    body {
+      height: 100vh; /* גובה של 100% מהנראית */
+      width: 100vw; /* רוחב של 100% מהנראית */
+      background-image: url("../images/רקע.jpeg"); /* תמונת רקע */
+      background-repeat: no-repeat; /* מניעת חזרה של התמונה */
+      background-size: 100% 100%; /* התאמת גודל התמונה לגודל המסך */
+      text-align: center; /* יישור הטקסט למרכז */
+    }
+
+    h2 {
+      margin-bottom: 1%; /* מרווח תחתון */
+      font-size: 3.5rem; /* גודל הטקסט */
+      font-weight: 300; /* משקל הטקסט */
+      animation: lights 5s 750ms linear infinite; /* אנימציה לשינוי צבעים */
+    }
+    #instructions {
+      letter-spacing: 1px; /* רווח בין אותיות */
+      margin: 1%; /* מרווח מסביב לטקסט */
+      font-size: 1.5rem; /* גודל הטקסט */
+      font-weight: 250; /* משקל הטקסט */
+      animation: lights 5s 750ms linear infinite; /* אנימציה לשינוי צבעים */
+      font-family: Comic Sans MS; /* גופן של הטקסט */
+      text-shadow: 0 0 2px #ff4af6a8, 0 0 5px #88379ca8, 0 0 3px #ef00e3a8,
+        0 0 15px #e27bdda8, 0 0 2px #e7e7e7, 2px 2px 2px #54ccdb; /* צללים לטקסט */
+      color: #e9cbf5; /* צבע הטקסט */
+      margin-left: 25%; /* מרווח מהצד השמאלי */
+      margin-right: 25%; /* מרווח מהצד הימני */
+    }
+    button {
+      background-image: linear-gradient(
+        to left,
+        rgba(234, 67, 153, 0.75) 0%,
+        rgba(98, 103, 236, 0.86) 100%
+      ); /* צבע רקע עם גרדיאנט */
+      box-shadow: 0 9px 25px -5px #ac36d7; /* צללים לכפתור */
+      font-family: "Abel", sans-serif; /* גופן של הטקסט */
+      padding: 0.5em 1.9em; /* ריפוד פנימי */
+      border-radius: 7px; /* עיגול פינות הכפתור */
+      font-size: 1.8em; /* גודל הטקסט */
+      cursor: pointer; /* סמן של לחיצה */
+      color: #ffffff; /* צבע הטקסט */
+      font-size: 1.5em; /* גודל הטקסט (נראה שכתוב פעמיים) */
+      outline: none; /* הסרת קו סביב הכפתור */
+      border: none; /* הסרת גבול של הכפתור */
+      transition: 0.3s linear; /* מעבר חלק */
+      margin-top: 2%; /* מרווח עליון */
+    }
+    a {
+      text-decoration: none; /* הסרת קישוט הקישור */
+      color: inherit; /* ירושת צבע מההורה */
+      font-size: 20px; /* גודל הטקסט */
+    }
+    p {
+      margin-bottom: 0%; /* מרווח תחתון */
+      text-align: center; /* יישור הטקסט למרכז */
+      font-weight: 700; /* משקל הטקסט */
+      font-size: 50px; /* גודל הטקסט */
+      font-family: Hack, sans-serif; /* גופן הטקסט */
+      text-transform: uppercase; /* המרת טקסט לאותיות רישיות */
+      background: linear-gradient(90deg, #ea37b4, #fff, #5eaabb); /* גרדיאנט רקע */
+      letter-spacing: 5px; /* רווח בין אותיות */
+      -webkit-background-clip: text; /* חיתוך הרקע לפי הטקסט עבור דפדפנים תומכים */
+      background-clip: text; /* חיתוך הרקע לפי הטקסט */
+      -webkit-text-fill-color: transparent; /* צבע טקסט שקוף עבור דפדפנים תומכים */
+      background-repeat: no-repeat; /* מניעת חזרה של הרקע */
+      background-size: 80%; /* גודל הרקע */
+      animation: shine 7s linear infinite; /* אנימציה לשינוי צבעים */
+    }
+    @keyframes shine {
+      0% {
+        background-position-x: -500%; /* מיקום הרקע בהתחלה */
+      }
+      100% {
+        background-position-x: 500%; /* מיקום הרקע בסוף */
+      }
+    }
+    @keyframes wiggle {
+      0%,
+      7% {
+        transform: rotateZ(0); /* סיבוב 0 מעלות */
+      }
+      15% {
+        transform: rotateZ(-15deg); /* סיבוב של -15 מעלות */
+      }
+      20% {
+        transform: rotateZ(10deg); /* סיבוב של 10 מעלות */
+      }
+      25% {
+        transform: rotateZ(-10deg); /* סיבוב של -10 מעלות */
+      }
+      30% {
+        transform: rotateZ(6deg); /* סיבוב של 6 מעלות */
+      }
+      35% {
+        transform: rotateZ(-4deg); /* סיבוב של -4 מעלות */
+      }
+      40%,
+      100% {
+        transform: rotateZ(0); /* סיבוב 0 מעלות */
+      }
+    }
+
+    #t2 {
+      background-image: linear-gradient(
+        to left,
+        rgba(255, 146, 202, 0.75) 0%,
+        rgba(145, 149, 251, 0.86) 100%
+      ); /* צבע רקע עם גרדיאנט */
+      box-shadow: 0 9px 25px -5px #df91fb; /* צללים לכפתור */
+      font-family: "Abel", sans-serif; /* גופן של הטקסט */
+      padding: 0.5em 1.9em; /* ריפוד פנימי */
+      border-radius: 7px; /* עיגול פינות הכפתור */
+      font-size: 1.4em; /* גודל הטקסט */
+      cursor: pointer; /* סמן של לחיצה */
+      color: #ffffff; /* צבע הטקסט */
+      font-size: 2em; /* גודל הטקסט (נראה שכתוב פעמיים) */
+      outline: none; /* הסרת קו סביב הכפתור */
+      border: none; /* הסרת גבול של הכפתור */
+      transition: 0.3s linear; /* מעבר חלק */
+    }
+    /* סגנונות מיוחדים למסכים קטנים */
+    @media only screen and (max-width: 835px) {
+      h2 {
+        margin-bottom: 1%; /* מרווח תחתון */
+        font-size: 1rem; /* גודל הטקסט */
+        font-weight: 300; /* משקל הטקסט */
+      }
+      #instructions {
+        letter-spacing: 1px; /* רווח בין אותיות */
+        margin: 1%; /* מרווח מסביב לטקסט */
+        font-size: 1rem; /* גודל הטקסט */
+        font-weight: 250; /* משקל הטקסט */
+        animation: lights 5s 750ms linear infinite; /* אנימציה לשינוי צבעים */
+        font-family: Comic Sans MS; /* גופן של הטקסט */
+        text-shadow: 0 0 2px #ff4af6a8, 0 0 5px #88379ca8, 0 0 3px #ef00e3a8,
+          0 0 15px #e27bdda8, 0 0 2px #e7e7e7, 2px 2px 2px #54ccdb; /* צללים לטקסט */
+        color: #e9cbf5; /* צבע הטקסט */
+        margin-left: 25%; /* מרווח מהצד השמאלי */
+        margin-right: 25%; /* מרווח מהצד הימני */
+      }
+    }
+  </style>
+  <body>
+    <!-- טקסט עם קישור שניתן ללחוץ עליו -->
+    <p>SearchMe: <br /><a href="https://codepen.io/grohit/">the win play</a></p>
+    <div id="all">
+      <!-- הוראות המשחק -->
+      <h3 id="instructions">
+        find it -it's a new game that avital <br />
+        wrote it in acceleration just for you , May you have the most fun <br />
+        and enjoyment from our game, therefore choose the desired level and when
+        you enter the game you will see a number <br />
+        at the top of the page and quickly you will have to find the number
+        <br />
+        in the given matrix As fast as possible and the more you succeed, the
+        level will rise during the game, you will see a timer of the game time
+        <br />and you will have to win in that time Good luck! love you :)
+      </h3>
+      <!-- כפתור להמשך למשחק -->
+      <button id="t2">Approval</button>
+    </div>
+    <script>
+      // הוספת מאזין לאירוע "לחיצה" על הכפתור
+      document.querySelector("#t2").addEventListener("click", m);
+      function m() {
+        window.location.href = "../pages/game.html"; // מעבר לעמוד המשחק
+      }
+    </script>
+  </body>
+</html>

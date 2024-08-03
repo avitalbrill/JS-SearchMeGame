@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/styleProject.css" />
+    
+    <title>win</title>
+    <style>
+      body {
+        /* אנימציה להצגת התוצאות */
+        animation: showResults 1s linear;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        margin: 0;
+        /* תמונת רקע של מסך ניצחון */
+        background-image: url("../images/you-win-game-screen-2022-08-04-21-13-50-utc.gif");
+      }
+
+      /* הגדרת אנימציית הצגת התוצאות */
+      @keyframes showResults {
+        from {
+          width: 0;
+          height: 0;
+        }
+        to {
+          width: 100vw;
+          height: 100vh;
+        }
+      }
+
+      button {
+        /* עיצוב הכפתור */
+        border-radius: 20% 20% 20% 20%;
+        font-family: "Farsan", cursive;
+        margin-left: 40%;
+        color: rgb(19, 19, 19);
+      }
+
+      /* התאמה למסכים קטנים */
+      @media only screen and (max-width: 835px) {
+        button {
+          margin-top: 63%;
+          margin-left: 37%;
+        }
+      }
+    </style>
+  </head>
+  
+  <body>
+    <!-- כפתור למשחק חוזר -->
+    <button onclick="openPlay()">Play Again</button>
+    
+    <script>
+      // פונקציה לפתיחת המשחק מחדש
+      function openPlay() {
+        window.location.href = "../pages/game.html";
+      }
+    </script>
+  </body>
+</html>

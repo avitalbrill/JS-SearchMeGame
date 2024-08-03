@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/styleProject.css" />
+    <title>Game</title>
+  </head>
+  <body>
+    <!-- תצוגת מוזיקה ברקע שתנוגן באופן אוטומטי וחוזר -->
+    <audio
+      id="backgroundMusic"
+      src="../images/Happy and Fun Pop Background Music For Videos.mp3"
+      autoplay
+      loop
+    ></audio>
+
+    <div id="all">
+      <div id="head">
+        <div id="containtimer">
+          <div id="score">
+            <!-- תצוגת הניקוד -->
+            <h1 id="h1">score:</h1>
+            <h1 id="grade">0</h1>
+          </div>
+          <div class="timer animatable">
+            <svg>
+              <!-- מעגל עבור הטיימר -->
+              <circle cx="50%" cy="50%" r="90" />
+              <circle cx="50%" cy="50%" r="90" pathLength="1" />
+              <text x="100" y="100" text-anchor="middle">
+                <tspan id="timeLeft"></tspan>
+              </text>
+              <text x="100" y="120" text-anchor="middle" id="second">
+                seconds
+              </text>
+            </svg>
+          </div>
+        </div>
+        <div id="rand"></div>
+        <div id="star">
+          <!-- תמונות של כוכבים שמייצגות את רמת הקושי -->
+          <img src="../images/star.png" id="star1" />
+          <img src="../images/star.png" id="star2" />
+          <img src="../images/star.png" id="star3" />
+        </div>
+      </div>
+      <div id="board"></div>
+      <div id="timer"></div>
+      <div id="results">
+        <!-- כפתור להתחלת משחק חדש -->
+        <button onclick="Again()">Play Again</button>
+      </div>
+    </div>
+
+    <script>
+      // מאזין לטעינת הדף ומפעיל את המוזיקה ברקע
+      window.addEventListener("DOMContentLoaded", function () {
+        var audio = document.getElementById("backgroundMusic");
+        audio.play();
+      });
+
+      // מגדיר את זמן המשחק ההתחלתי
+      let timeLeft = 60;
+      let timer = document.getElementById("timeLeft");
+
+      // פונקציה שבודקת אם נשאר זמן
+      function isTimeLeft() {
+        return timeLeft > -1;
+      }
+
+      // פונקציה שמפעילה את הטיימר
+      function runTimer(timerElement) {
+        const timerCircle = timerElement.querySelector("svg > circle + circle");
+        timerElement.classList.add("animatable");
+        timerCircle.style.strokeDashoffset = 1;
+
+        // מפעיל טיימר שרץ כל שנייה
+        let countdownTimer = setInterval(function () {
+          if (isTimeLeft()) {
+            // מעדכן את הזמן הנותר ואת המעגל של הטיימר
+            const timeRemaining = timeLeft--;
+            const normalizedTime = (60 - timeRemaining) / 60;
+
+            timerCircle.style.strokeDashoffset = normalizedTime;
+            timer.innerHTML = timeRemaining;
+          } else {
+            // עוצר את הטיימר כשהזמן נגמר
+            clearInterval(countdownTimer);
+            timerElement.classList.remove("animatable");
+          }
+        }, 1000);
+      }
+
+      // מפעיל את הטיימר
+      runTimer(document.querySelector(".timer"));
+
+      // מגדיר משתנים התחלתיים למשחק
+      let c = 0,
+        cnt = 0,
+        k = 4;
+
+      // מתחיל את המשחק
+      start(k);
+
+      // פונקציה ראשית שמתחילה את המשחק
+      function start(k) {
+        // מייצר מספר אקראי לחיפוש
+        let randNum = Math.floor(Math.random() * (k * 10)) + 1;
+        document.getElementById("rand").innerHTML = randNum;
+
+        // מייצר מיקום אקראי למספר המבוקש
+        let r1 = Math.floor(Math.random() * k) + 1;
+        let r2 = Math.floor(Math.random() * k) + 1;
+        let numid;
+        let board = document.getElementById("board");
+
+        // יוצר את לוח המשחק
+        for (let i = k; i >= 1; i--) {
+          let newRow = document.createElement("div");
+          newRow.classList.add("row");
+          board.appendChild(newRow);
+
+          for (let j = k; j >= 1; j--) {
+            let numbers = i * k - j + 1;
+            let span = document.createElement("span");
+            // מוסיף מחלקה מתאימה לגודל הלוח
+            if (k == 4) span.classList.add("square");
+            if (k == 6) span.classList.add("square2");
+            if (k == 8) span.classList.add("square3");
+
+            span.setAttribute("id", "a" + numbers);
+            newRow.appendChild(span);
+
+            // מתאים את הגודל ללוח 8x8
+            if (k == 8) {
+              document.getElementById("a" + numbers).style.fontSize = "2rem";
+              document.getElementById("a" + numbers).style.width = "6vw";
+              document.getElementById("a" + numbers).style.height = "7vh";
+            }
+
+            // מייצר מספרים אקראיים ללוח
+            randNumbers = Math.floor(Math.random() * (k * 10)) + 1;
+            while (randNumbers == randNum) {
+              randNumbers = Math.floor(Math.random() * (k * 10)) + 1;
+            }
+            span.textContent = randNumbers;
+            // מציב את המספר המבוקש במיקום האקראי שנבחר
+            if (i == r1 && j == r2) {
+              span.textContent = randNum;
+              numid = numbers;
+              console.log(numid);
+            }
+
+            let num = i * k - j + 1;
+            // מוסיף מאזין לחיצה לכל ריבוע
+            document
+              .getElementById("a" + num)
+              .addEventListener("click", check2);
+            function check2() {
+              document.getElementById("a" + num).textContent = "🙁";
+            }
+          }
+        }
+        let x;
+        // מקבל את שם השחקן מהאחסון המקומי
+        let y = localStorage.getItem("name");
+        // אם יש שם שמור, הצג אותו
+        if (y) {
+          document.getElementById("h1").innerHTML = y;
+         }  else {
+          // אם אין שם שמור, הצג שם ברירת מחדל או התראה
+         document.getElementById("h1").innerHTML = "Player";
+         }
+
+        document.getElementById("h1").innerHTML = y;
+
+        // מוסיף מאזין לחיצה למספר המבוקש
+        document.getElementById("a" + numid).addEventListener("click", check);
+
+        // פונקציה שמתבצעת כאשר השחקן לוחץ על המספר הנכון
+        function check() {
+          x = document.getElementById("grade");
+
+          x.setAttribute("class", "grade");
+          // מעלה את הניקוד
+          cnt += 100;
+
+          document.getElementById("grade").innerHTML = "+" + cnt;
+          document.getElementById("board").innerHTML = "";
+
+          // מעלה את רמת הקושי כשמגיעים לניקוד מסוים
+          if (cnt == 300) {
+            k = 6;
+            x.classList.remove("grade");
+            document.getElementById("star1").src = "../images/star_477406.png";
+          }
+          if (cnt == 600) {
+            x.classList.remove("grade");
+            k = 8;
+            document.getElementById("star2").src = "../images/star_477406.png";
+          }
+
+          // מסיים את המשחק כשמגיעים לניקוד מקסימלי
+          if (cnt == 900) {
+            x.classList.remove("grade");
+            document.getElementById("star3").src = "../images/star_477406.png";
+            k = 0;
+            document.getElementById("rand").innerHTML = " ";
+            const myTimeout = setTimeout(win, 1000);
+          }
+
+          // מתחיל סיבוב חדש
+          start(k);
+
+          // שומר את השיא באחסון המקומי
+          localStorage.setItem(
+            "record",
+            document.getElementById("grade").innerHTML
+          );
+          // פונקציה שמעבירה למסך הניצחון
+          function win() {
+            window.location.href = "../pages/win.html";
+
+            clearTimeout(myTimeout);
+          }
+        }
+      }
+
+      // פונקציה שמתחילה משחק חדש
+      function Again() {
+        window.location.href = "../pages/game.html";
+      }
+    </script>
+  </body>
+</html>
